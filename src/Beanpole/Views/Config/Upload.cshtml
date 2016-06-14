@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Upload";
+}
+
+<h2>A new override for @ViewBag.Environment</h2>
+
+<p>This will delete all current configuration for this environment and create new configuration based on the uploaded file.</p>
+<div>
+
+    @using (Html.BeginForm("Upload", "Config", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.Hidden("Environment", (string)@ViewBag.Environment)
+
+        <input type="file" name="file" id="file" />
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Upload" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", new { Environment = Model.Environment })
+        </div>
+    }
+</div>

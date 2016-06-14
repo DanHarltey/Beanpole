@@ -1,0 +1,67 @@
+﻿@using Beanpole.ViewModels
+@model ConfigsViewModel
+
+@{
+    ViewBag.Title = "Configuration Admin";
+}
+
+<h2>
+    @if (Model.IsActive)
+    {
+        <span class="active" title="Environment is currently connected">
+            @Html.DisplayFor(model => model.EnvironmentName)
+        </span>
+    }
+    else
+    {
+        <span class="notactive" title="Environment is not connected">
+            @Html.DisplayFor(model => model.EnvironmentName)
+        </span>
+    }
+    Configuration
+    @using (Html.BeginForm("Restart", "Restart", FormMethod.Post, new { id = "Restart" }))
+    {
+        // Form Elements here
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.EnvironmentName)
+        <input type="submit" value="Restart" class="btn btn-default" @((Model.IsActive) ? "" : "disabled") />
+    }
+</h2>
+
+
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create", "Config", new { Environment = Model.EnvironmentName }, null)
+    | @Html.ActionLink("Delete All", "DeleteAll", "Config", new { Environment = Model.EnvironmentName }, null)
+    | @Html.ActionLink("Upload", "Upload", "Config", new { Environment = Model.EnvironmentName }, null)
+    | @Html.ActionLink("Download", "Download", "Config", new { Environment = Model.EnvironmentName }, null)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ConfigItems.First().Key)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConfigItems.First().Value)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ConfigItems.OrderBy(x => x.Environment, StringComparer.OrdinalIgnoreCase).ThenBy(x => x.Key, StringComparer.OrdinalIgnoreCase))
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Key)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item._id }) |
+                @Html.ActionLink("Details", "Details", new { id = item._id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item._id })
+            </td>
+        </tr>
+    }
+
+</table>

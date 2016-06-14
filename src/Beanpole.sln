@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beanpole", "Beanpole\Beanpole.csproj", "{2EFBA1C9-E2B5-46E0-ACAC-4F5133751C3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beanpole.Client", "Beanpole.Client\Beanpole.Client.csproj", "{CA7F103C-00E4-4CD9-A22B-7D6E7B8CF279}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beanpole.Client.Tests", "Beanpole.Client.Tests\Beanpole.Client.Tests.csproj", "{38CF1E05-3C32-4BEB-BA3B-7FBFA133FBCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2EFBA1C9-E2B5-46E0-ACAC-4F5133751C3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EFBA1C9-E2B5-46E0-ACAC-4F5133751C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EFBA1C9-E2B5-46E0-ACAC-4F5133751C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EFBA1C9-E2B5-46E0-ACAC-4F5133751C3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA7F103C-00E4-4CD9-A22B-7D6E7B8CF279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA7F103C-00E4-4CD9-A22B-7D6E7B8CF279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA7F103C-00E4-4CD9-A22B-7D6E7B8CF279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA7F103C-00E4-4CD9-A22B-7D6E7B8CF279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38CF1E05-3C32-4BEB-BA3B-7FBFA133FBCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38CF1E05-3C32-4BEB-BA3B-7FBFA133FBCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38CF1E05-3C32-4BEB-BA3B-7FBFA133FBCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38CF1E05-3C32-4BEB-BA3B-7FBFA133FBCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

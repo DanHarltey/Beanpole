@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Beanpole.ViewModels.BeanstalkEnvironmentViewModel>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EnvironmentName)
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Version)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a style="color: @item.Helth" href="http://@item.EndPoint">@Html.DisplayFor(model => item.EnvironmentName)</a>
+            </td>
+            <td>
+                @if (item.HasBeanpole)
+                {
+                    @Html.ActionLink("Override Config", "Index", "Config", new { Environment = item.EnvironmentName }, null)
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Splunk", "RedirectToSplunk", new { environmentName = item.EnvironmentName })
+            </td>
+            <td>
+                @if (item.AllowRestart)
+                {
+                    using (Html.BeginForm("RestartEnvironment", "Home", FormMethod.Post))
+                    {
+                        // Form Elements here
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => item.EnvironmentName, new { Name = "EnvironmentName" })
+                        <input type="submit" value="Restart" class="btn btn-default" />
+                    }
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Version)
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Beanpole.Models.ClientRequest>
+@using Beanpole.Controllers
+
+@{
+    ViewBag.Title = "Beanpole";
+}
+
+<h2>Recently seen environments</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EnvironmentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SplunkLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MachineName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastSeen)
+        </th>
+    </tr>
+
+    @foreach (var item in Model.OrderBy(x => x.EnvironmentName, StringComparer.OrdinalIgnoreCase).ThenBy(x => x.Ip))
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.EnvironmentName, "Index", "Config", new { Environment = item.EnvironmentName }, null)
+            </td>
+            <td>
+                <a href="@item.SplunkLink">Splunk Link</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MachineName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastSeen)
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Beanpole.ViewModels.BeanstalkGroupViewModel>
+
+@{
+    ViewBag.Title = "Beanstalk environments";
+}
+
+<h2>Beanstalk environments</h2>
+
+@foreach (var grouping in Model.Where(x => x.Environments.Any()))
+{
+    <h3>@Html.DisplayFor(model => grouping.GroupName)</h3>
+
+    @Html.Partial("_EnvironmentsView", grouping.Environments)
+}
