@@ -3,7 +3,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.EnvironmentName)
+            @Html.DisplayNameFor(model => model.EnvironmentName) 
         </th>
         <th>
         </th>
@@ -20,7 +20,7 @@
     {
         <tr>
             <td>
-                <a style="color: @item.Helth" href="http://@item.EndPoint">@Html.DisplayFor(model => item.EnvironmentName)</a>
+                <a style="color: @item.Helth" href="http://@item.EndPoint" target="_blank">@Html.DisplayFor(model => item.EnvironmentName)</a>
             </td>
             <td>
                 @if (item.HasBeanpole)
@@ -29,7 +29,7 @@
                 }
             </td>
             <td>
-                @Html.ActionLink("Splunk", "RedirectToSplunk", new { environmentName = item.EnvironmentName })
+                @Html.ActionLink("Splunk", "RedirectToSplunk", new { environmentName = item.EnvironmentName }, new { target = "_blank" })
             </td>
             <td>
                 @if (item.AllowRestart)

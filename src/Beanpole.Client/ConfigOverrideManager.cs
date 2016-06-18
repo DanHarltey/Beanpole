@@ -66,7 +66,7 @@
                 appSettingsNode.SetAttribute(OverrideAttribute, ConfigOverrideManager.OverrideFile);
                 xml.Save(this.configPath);
             }
-            else if (string.Equals(attribute.Value, ConfigOverrideManager.OverrideFile, StringComparison.OrdinalIgnoreCase))
+            else if (!string.Equals(attribute.Value, ConfigOverrideManager.OverrideFile, StringComparison.OrdinalIgnoreCase))
             {
                 attribute.Value = ConfigOverrideManager.OverrideFile;
                 xml.Save(this.configPath);

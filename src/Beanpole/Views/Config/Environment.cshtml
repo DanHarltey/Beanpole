@@ -34,7 +34,7 @@
     @Html.ActionLink("Create New", "Create", "Config", new { Environment = Model.EnvironmentName }, null)
     | @Html.ActionLink("Delete All", "DeleteAll", "Config", new { Environment = Model.EnvironmentName }, null)
     | @Html.ActionLink("Upload", "Upload", "Config", new { Environment = Model.EnvironmentName }, null)
-    | @Html.ActionLink("Download", "Download", "Config", new { Environment = Model.EnvironmentName }, null)
+    | @Html.ActionLink("Download", "Download", "Config", new { Environment = Model.EnvironmentName }, new { download = @Model.EnvironmentName + ".overrides.config" })
 </p>
 <table class="table">
     <tr>

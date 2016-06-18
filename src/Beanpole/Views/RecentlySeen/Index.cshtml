@@ -2,10 +2,10 @@
 @using Beanpole.Controllers
 
 @{
-    ViewBag.Title = "Beanpole";
+    ViewBag.Title = "Beanpole - Recently seen agents";
 }
 
-<h2>Recently seen environments</h2>
+<h2>Recently seen agents</h2>
 
 <table class="table">
     <tr>
@@ -21,9 +21,9 @@
         <th>
             @Html.DisplayNameFor(model => model.MachineName)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.LastSeen)
-        </th>
+        </th>*@
     </tr>
 
     @foreach (var item in Model.OrderBy(x => x.EnvironmentName, StringComparer.OrdinalIgnoreCase).ThenBy(x => x.Ip))
@@ -33,7 +33,7 @@
                 @Html.ActionLink(item.EnvironmentName, "Index", "Config", new { Environment = item.EnvironmentName }, null)
             </td>
             <td>
-                <a href="@item.SplunkLink">Splunk Link</a>
+                <a href="@item.SplunkLink" target="_blank">Splunk Link</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Ip)
@@ -41,9 +41,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.MachineName)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.LastSeen)
-            </td>
+            </td>*@
         </tr>
     }
 

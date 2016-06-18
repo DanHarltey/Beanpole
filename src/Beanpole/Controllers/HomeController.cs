@@ -66,12 +66,12 @@
                 }
             }
 
-            var unknowGroup = new BeanstalkGroupViewModel("Unknow");
+            var unknownGroup = new BeanstalkGroupViewModel("Unknown");
             for (int i = 0; i < environments.Count; i++)
             {
-                unknowGroup.Environments.Add(Convert(environments[i]));
+                unknownGroup.Environments.Add(Convert(environments[i]));
             }
-            viewModels[viewModels.Length - 1] = unknowGroup;
+            viewModels[viewModels.Length - 1] = unknownGroup;
 
             for (int i = 0; i < viewModels.Length; i++)
             {
@@ -115,7 +115,7 @@
                 return new HttpStatusCodeResult(ex.StatusCode, ex.Message);
             }
 
-            return this.RedirectToAction("index");
+            return this.RedirectToAction("Index", "Restart");
         }
 
         public async Task<ActionResult> RedirectToSplunk(string environmentName)
