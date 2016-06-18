@@ -94,10 +94,11 @@
             if (ModelState.IsValid)
             {
                 await this.configItemRepository.Add(configItem);
+
+                await this.UpdateEnvironment(configItem.Environment);
+
                 return RedirectToAction("Index", new { Environment = configItem.Environment });
             }
-
-            await this.UpdateEnvironment(configItem.Environment);
 
             return View(configItem);
         }
@@ -131,10 +132,11 @@
             if (ModelState.IsValid)
             {
                 await this.configItemRepository.Update(configItem);
+
+                await this.UpdateEnvironment(configItem.Environment);
+
                 return RedirectToAction("Index", new { Environment = configItem.Environment });
             }
-
-            await this.UpdateEnvironment(configItem.Environment);
 
             return View(configItem);
         }

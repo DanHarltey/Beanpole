@@ -27,6 +27,7 @@
 
             Action<string> configUpdate = this.UpdateConfig;
             this.eventSubscription = this.configHub.On("ConfigUpdate", configUpdate);
+            this.Connect();
         }
 
         protected override async Task OnConnection()

@@ -27,8 +27,6 @@
             this.hubConnection = new HubConnection(webAddress);
             this.hubConnection.StateChanged += HubClient.LogStateChanges;
             this.hubConnection.Closed += this.Reconnect;
-
-            this.Connect();
         }
 
         protected MachineConfig MachineConfig
@@ -65,7 +63,7 @@
 
         protected abstract Task OnConnection();
 
-        private void Connect()
+        protected void Connect()
         {
             this.hubConnection
                 .Start()

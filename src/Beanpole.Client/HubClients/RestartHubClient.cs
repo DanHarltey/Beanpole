@@ -18,6 +18,7 @@
         {
             this.restartHub = this.HubConnection.CreateHubProxy("RestartHub");
             this.eventSubscription = this.restartHub.On("RestartIIS", RestartHubClient.RestartIIS);
+            this.Connect();
         }
 
         protected override async Task OnConnection()
