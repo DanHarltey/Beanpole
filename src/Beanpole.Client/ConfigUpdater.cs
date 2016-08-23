@@ -108,10 +108,18 @@
 
         private void FileChanged(object sender, FileSystemEventArgs e)
         {
-            if (string.Equals(e.FullPath, this.configManager.ConfigPath, StringComparison.OrdinalIgnoreCase))
+            try
             {
-                ConfigUpdater.Log.Debug("File update detected");
-                this.UpdateFile();
+                if (string.Equals(e.FullPath, this.configManager.ConfigPath, StringComparison.OrdinalIgnoreCase))
+                {
+                    ConfigUpdater.Log.Debug("File update detected");
+                    this.UpdateFile();
+                }
+            }
+            catch (Exception ex)
+            {
+                // just log the exception, as this is raised from FileSystemWatcher.OnChanged it is terminal if we throw here
+                ConfigUpdater.Log.Error(ex);
             }
         }
 
